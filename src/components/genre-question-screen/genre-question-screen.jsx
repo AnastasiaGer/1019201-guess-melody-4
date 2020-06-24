@@ -2,6 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {GameType} from "../../const.js";
 
+
 class GenreQuestionScreen extends PureComponent {
   constructor(props) {
     super(props);
@@ -20,57 +21,42 @@ class GenreQuestionScreen extends PureComponent {
     } = question;
 
     return (
-      <section className="game game--genre">
-        <header className="game__header">
-          <a className="game__back" href="#">
-            <span className="visually-hidden">Сыграть ещё раз</span>
-            <img className="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию"/>
-          </a>
-
-          <div className="game__mistakes">
-            <div className="wrong"/>
-            <div className="wrong"/>
-            <div className="wrong"/>
-          </div>
-        </header>
-
-        <section className="game__screen">
-          <h2 className="game__title">Выберите {genre} треки</h2>
-          <form
-            className="game__tracks"
-            onSubmit={(evt) => {
-              evt.preventDefault();
-              onAnswer(question, this.state.answers);
-            }}
-          >
-            {answers.map((answer, i) => (
-              <div key={`${i}-${answer.src}`} className="track">
-                <button className="track__button track__button--play" type="button"/>
-                <div className="track__status">
-                  <audio
-                    src={answer.src}
-                  />
-                </div>
-                <div className="game__answer">
-                  <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`}
-                    id={`answer-${i}`}
-                    checked={userAnswers[i]}
-                    onChange={(evt) => {
-                      const value = evt.target.checked;
-
-                      this.setState({
-                        answers: [...userAnswers.slice(0, i), value, ...userAnswers.slice(i + 1)],
-                      });
-                    }}
-                  />
-                  <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
-                </div>
+      <section className="game__screen">
+        <h2 className="game__title">Выберите {genre} треки</h2>
+        <form
+          className="game__tracks"
+          onSubmit={(evt) => {
+            evt.preventDefault();
+            onAnswer(question, this.state.answers);
+          }}
+        >
+          {answers.map((answer, i) => (
+            <div key={`${i}-${answer.src}`} className="track">
+              <button className="track__button track__button--play" type="button"/>
+              <div className="track__status">
+                <audio
+                  src={answer.src}
+                />
               </div>
-            ))}
+              <div className="game__answer">
+                <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-${i}`}
+                  id={`answer-${i}`}
+                  checked={userAnswers[i]}
+                  onChange={(evt) => {
+                    const value = evt.target.checked;
 
-            <button className="game__submit button" type="submit">Ответить</button>
-          </form>
-        </section>
+                    this.setState({
+                      answers: [...userAnswers.slice(0, i), value, ...userAnswers.slice(i + 1)],
+                    });
+                  }}
+                />
+                <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
+              </div>
+            </div>
+          ))}
+
+          <button className="game__submit button" type="submit">Ответить</button>
+        </form>
       </section>
     );
   }
