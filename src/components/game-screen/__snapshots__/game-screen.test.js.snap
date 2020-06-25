@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameScreen component render correctly with type GameType.ARTIST 1`] = `
+<section
+  className="game game--artist"
+>
+  <header
+    className="game__header"
+  >
+    <a
+      className="game__back"
+      href="#"
+    >
+      <span
+        className="visually-hidden"
+      >
+        Сыграть ещё раз
+      </span>
+      <img
+        alt="Угадай мелодию"
+        className="game__logo"
+        src="img/melody-logo-ginger.png"
+      />
+    </a>
+    <div
+      className="game__mistakes"
+    >
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+    </div>
+  </header>
+  <div
+    className="children-component"
+  />
+</section>
+`;
+
+exports[`GameScreen component render correctly with type GameType.GENRE 1`] = `
+<section
+  className="game game--genre"
+>
+  <header
+    className="game__header"
+  >
+    <a
+      className="game__back"
+      href="#"
+    >
+      <span
+        className="visually-hidden"
+      >
+        Сыграть ещё раз
+      </span>
+      <img
+        alt="Угадай мелодию"
+        className="game__logo"
+        src="img/melody-logo-ginger.png"
+      />
+    </a>
+    <div
+      className="game__mistakes"
+    >
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+      <div
+        className="wrong"
+      />
+    </div>
+  </header>
+  <div
+    className="children-component"
+  />
+</section>
+`;
